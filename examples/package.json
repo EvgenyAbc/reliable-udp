@@ -1,0 +1,30 @@
+{
+  "name": "reliable-udp-examples",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run --config vitest.config.ts",
+    "test:watch": "vitest --config vitest.config.ts",
+    "game:native:ensure": "node scripts/ensure-game-native-deps.mjs",
+    "game:server": "tsx ping-pong/server.ts",
+    "game:client": "npm run game:native:ensure && tsx ping-pong/client.ts",
+    "game:soak": "tsx ping-pong/matchmaking-soak.ts",
+    "game:benchmark": "tsx ping-pong/benchmark.ts",
+    "physics:server": "tsx physics-sandbox/server.ts",
+    "physics:client": "npm run game:native:ensure && tsx physics-sandbox/client.ts"
+  },
+  "dependencies": {
+    "@kmamal/gl": "^9.1.0",
+    "@kmamal/sdl": "^0.11.13",
+    "matter-js": "^0.20.0",
+    "reliable-udp": "file:.."
+  },
+  "devDependencies": {
+    "@types/matter-js": "^0.19.8",
+    "@types/node": "^22.10.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
